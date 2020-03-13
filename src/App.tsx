@@ -1,26 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useLayoutEffect, useRef } from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import './App.css';
+import { Pulse } from './Pulse';
+
+const App: React.FC = () => {
+    const canvasRef = useRef<HTMLCanvasElement>(null);
+
+    useLayoutEffect(() => {
+        if (canvasRef.current) {
+            const { height, width } = canvasRef.current.getBoundingClientRect();
+            canvasRef.current.height = height;
+            canvasRef.current.width = width;
+
+            const pulse = new Pulse(canvasRef.current);
+            return () => pulse.destroy();
+        }
+    }, [canvasRef]);
+
+    return (
+        <div className="wrapper">
+            <canvas className="pulse" ref={canvasRef} />;
+        </div>
+    );
+};
 
 export default App;

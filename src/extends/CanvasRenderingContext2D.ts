@@ -12,7 +12,7 @@ CanvasRenderingContext2D.prototype.drawTower = function(x: number, y: number, w:
     this.translate(0, -h / 2);
 
     // Top
-    this.fillStyle = '#ced6ad';
+    this.fillStyle = '#78a6a3';
     this.save();
     this.transform(1, 0.5, 0, 1, 0, -w / 4);
     this.fillRect(0, 0, w / 2, w / 2);
@@ -30,7 +30,7 @@ CanvasRenderingContext2D.prototype.drawTower = function(x: number, y: number, w:
     this.restore();
 
     // Right
-    this.fillStyle = '#78a6a3';
+    this.fillStyle = '#ced6ad';
     this.save();
     this.transform(-1, 0.5, 0, 1, w / 2, 0);
     this.fillRect(0, 0, w / 2, h);

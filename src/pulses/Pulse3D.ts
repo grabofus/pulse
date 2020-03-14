@@ -20,7 +20,7 @@ export class Pulse3D extends PulseBase {
         // Draw
         for (let i = -count; i <= count; i++) {
             for (let j = -count; j <= count; j++) {
-                const distance = Math.sqrt(Math.pow(Math.abs(i), 2) + Math.pow(Math.abs(j), 2));
+                const distance = Math.sqrt(Math.pow(i, 2) + Math.pow(j, 2));
                 const localDegree = degree + distance * (-180 / count);
                 const rad = degreesToRadians(localDegree);
                 const angle = Math.sin(rad);

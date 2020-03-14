@@ -13,7 +13,7 @@ enum Modes {
 
 const App: React.FC = () => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
-    const [mode, setMode] = useState(Modes.Pulse2D);
+    const [mode, setMode] = useState(Modes.Pulse3D);
     const [animationSpeed] = useState(2);
 
     useLayoutEffect(() => {

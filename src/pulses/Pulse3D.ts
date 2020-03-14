@@ -16,11 +16,12 @@ export class Pulse3D extends PulseBase {
         const towers: [number, number, number][] = [];
 
         const w = 40;
-        const count = 6;
+        const count = 7;
         // Draw
         for (let i = -count; i <= count; i++) {
             for (let j = -count; j <= count; j++) {
-                const localDegree = degree + (Math.abs(i) + Math.abs(j)) * -20;
+                const distance = Math.sqrt(Math.pow(Math.abs(i), 2) + Math.pow(Math.abs(j), 2));
+                const localDegree = degree + distance * -30;
                 const rad = degreesToRadians(localDegree);
                 const angle = Math.sin(rad);
                 const h = map(angle, -1, 1, 50, 200);
